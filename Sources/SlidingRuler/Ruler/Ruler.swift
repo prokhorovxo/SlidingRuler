@@ -54,7 +54,9 @@ struct Ruler: View, Equatable {
     static func ==(lhs: Self, rhs: Self) -> Bool {
         lhs.step == rhs.step &&
         lhs.cells.count == rhs.cells.count &&
-        (!StaticSlidingRulerStyleEnvironment.hasMarks || lhs.markOffset == rhs.markOffset)
+        (lhs.markOffset == rhs.markOffset)
+        // causing "Accessing Environment's value outside of being installed on a View" errors when running so commenting out
+//        (!StaticSlidingRulerStyleEnvironment.hasMarks || lhs.markOffset == rhs.markOffset)
     }
 }
 
